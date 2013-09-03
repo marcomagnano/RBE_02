@@ -118,11 +118,6 @@ var app = {
 						buffy += '</a></li>';
 					});
 					$('#all-posts').html(buffy);
-					//var source   = $("#blog-template").html();
-					//var template = Handlebars.compile(source);
-					//var blogData = template(data);
-					//$('#blog-data').html(blogData);
-					//$('#blog-data').trigger('create');
 					dfd.resolve(data);
 				},
 				error: function(data) {
@@ -144,7 +139,7 @@ var app = {
 			$('#page-loader').fadeIn(600);
 			var dfd = $.Deferred();
 			$.ajax({
-				url: 'http://vociprotestanti.it/api/get_category_posts/?slug=news/',
+				url: 'http://vociprotestanti.it/api/get_recent_posts/',
 				type: 'GET',
 				dataType: 'json',
 				success: function(data) {
@@ -212,11 +207,6 @@ var app = {
 						buffy += '</a></li>';
 					});
 					$('#all-posts').html(buffy);
-					//var source   = $("#blog-template").html();
-					//var template = Handlebars.compile(source);
-					//var blogData = template(data);
-					//$('#blog-data').html(blogData);
-					//$('#blog-data').trigger('create');
 					dfd.resolve(data);
 				},
 				error: function(data) {
