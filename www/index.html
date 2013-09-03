@@ -26,14 +26,27 @@
         <title>RBE</title>
     </head>
     <body>
-        <div class="app">
+        <div class="app" id="streamingPage">>
         	<div id="header">
         		<img id="logo-rbe" class="logo" src="img/logo-rbe.png" alt="logo-rbe" width="255" height="45" />
         	</div>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+            
+            <div data-role="content">
+				<div id="splasher">
+					<h3>Lo streaming sarà presto disponibile.</h3>
+					<img src="img/pazzello_big.png" alt="pazzello_big" width="320" height="355" />
+				</div>
+        		
+        	</div>
+    
+		    <div data-role="footer" id="footer">
+				<ul id="mainNavigation">
+		    		<li class="alpha current"><a href="index.html">Streaming</a></li>
+		    		<li><a href="mainRbePage.html">RBE</a></li>
+		    		<li class="omega"><a href="mainVpPage.html">Voci Protestanti</a></li>
+				</ul>
+			</div>
+            
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script src="js/libs/jquery-1.8.3.min.js"></script>
