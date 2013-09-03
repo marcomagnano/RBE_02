@@ -44,5 +44,99 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
         console.log('Received Event: ' + id);
         
-    }
+    },
+    blog: function() {
+		function getBlogs() {
+			$('#page-loader').fadeIn(600);
+			var dfd = $.Deferred();
+			$.ajax({
+				url: 'http://rbe.it/news/api/get_recent_posts/',
+				type: 'GET',
+				dataType: 'json',
+				success: function(data) {
+					var allposts = data.posts,
+						buffy = '';
+					$.each(allposts, function(postid, postcontent) {
+						var basedate = new Date(postcontent.date),
+							basemonth = basedate.getMonth() + 1,
+							post_thumbnail = '';
+						var itadate = basedate.getDate() + ' ';
+						switch (basemonth) {
+						case 1:
+							itadate += 'gennaio';
+							break;
+						case 2:
+							itadate += 'febbraio';
+							break;
+						case 3:
+							itadate += 'marzo';
+							break;
+						case 4:
+							itadate += 'aprile';
+							break;
+						case 5:
+							itadate += 'maggio';
+							break;
+						case 6:
+							itadate += 'giugno';
+							break;
+						case 7:
+							itadate += 'luglio';
+							break;
+						case 8:
+							itadate += 'agosto';
+							break;
+						case 9:
+							itadate += 'settembre';
+							break;
+						case 10:
+							itadate += 'ottobre';
+							break;
+						case 11:
+							itadate += 'novembre';
+							break;
+						case 12:
+							itadate += 'dicembre';
+							break;
+						}
+						itadate += ' ' + basedate.getFullYear();
+						$.each(postcontent.attachments, function(attid, attcontent) {
+							if (attcontent.mime_type == 'image/jpeg') {
+								post_image = attcontent.url;
+								return false;
+							}
+						});
+						if (post_image == '') {
+							post_thumbnail = 'img/noimage.png';
+						} else {
+							post_thumbnail = post_image.replace('.jpg', '-150x150.jpg');
+						}
+						buffy += '<li><a data-transition="slide" href="rbe-detail.html?' + postid + '">';
+						buffy += '<img class="post_thumbnail" src="' + post_thumbnail + '" width="100" height="100" title="' + postcontent.title + '" />';
+						buffy += '<h2 class="entry-title">' + postcontent.title + '</h2>';
+						buffy += '<span class="listingmeta">' + itadate + ' - ' + postcontent.comment_count + ' commenti</span>';
+						buffy += '</a></li>';
+					});
+					$('#all-posts').html(buffy);
+					//var source   = $("#blog-template").html();
+					//var template = Handlebars.compile(source);
+					//var blogData = template(data);
+					//$('#blog-data').html(blogData);
+					//$('#blog-data').trigger('create');
+					dfd.resolve(data);
+				},
+				error: function(data) {
+					$('#page-loader').fadeOut(600);
+					$('#all-posts').html("<br /><br /><h3>La connessione è assente. Riprova più tardi.</h3>");
+				}
+			});
+			return dfd.promise();
+		};
+		getBlogs().then(function(data) {
+			$('#page-loader').fadeOut(600);
+			$('#all-posts').on('click', 'li', function(e) {
+				localStorage.setItem('postData', JSON.stringify(data.posts[$(this).index()]));
+			});
+		});
+	}
 };
