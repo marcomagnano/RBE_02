@@ -48,57 +48,6 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
-}
-
-.ui-footer.ui-bar-a {
-	border: none;
-	border-top: 3px solid #fff;
-	background: #dfdfdf;
-	color: #222;
-	font-weight: normal;
-	text-shadow: none;
-}
-
-.ui-footer.ui-bar-a ul {
-	padding: 0;
-	margin: 0;
-}
-
-.ui-footer.ui-bar-a li {
-	float: left;
-	width: 34%;
-	display: block;
-	line-height: 40px;
-	text-align: center;
-	background: #dfdfdf;
-}
-.ui-footer.ui-bar-a li.alpha,
-.ui-footer.ui-bar-a li.omega {
-	width: 33%;
-}
-
-.ui-footer.ui-bar-a li a {
-	width: 100%;
-	display: block;
-	border-bottom: 5px solid #dfdfdf;
-}
-
-.ui-footer.ui-bar-a li a:hover,
-.ui-footer.ui-bar-a li a:visited:hover {
-	border-bottom-color: #c00;
-}
-
-.ui-footer.ui-bar-a li a:active {
-	background: #fcc;
 }
 
 #header {
