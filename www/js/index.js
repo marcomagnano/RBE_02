@@ -135,6 +135,7 @@ var app = {
 		});
 	},
 	VPblog: function() {
+	
 		function getVPBlogs() {
 			$('#page-loader').fadeIn(600);
 			var dfd = $.Deferred();
