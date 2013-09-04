@@ -140,7 +140,7 @@ var app = {
 			$('#page-loader').fadeIn(600);
 			var dfd = $.Deferred();
 			$.ajax({
-				url: 'http://vociprotestanti.it/api/get_recent_posts/',
+				url: 'http://rbe.it/news/api/get_recent_posts/',
 				type: 'GET',
 				dataType: 'json',
 				success: function(data) {
