@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.rbe" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>RBE</name>
+    <name>RBE Radio Beckwith</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Streaming, feeds di rbe.it e di VociProtestanti.
     </description>
-    <author email="dev@callback.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="marco.magnano@rbe.it" href="http://www.rbe.it">
+        Radio Beckwith
     </author>
     <access origin="*" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
+    <icon src="icon.png" />
 </widget>
